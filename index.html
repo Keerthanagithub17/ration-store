@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smart Ration Store Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <marquee behaviour="alternate" direction="left">Tamilnadu Ration Store Facility</marquee>
+
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+  />
+</head>
+<body>
+
+
+<div class="top-bar">
+  <div class="title">
+    🏪 Smart Ration Store
+    <small>Government of Tamil Nadu</small>
+  </div>
+  <span id="shopStatus" class="status">Loading...</span>
+</div>
+
+
+<div id="loginBox" class="card">
+  <h3>Login</h3>
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+</div>
+
+
+<div id="dashboard" class="dashboard hidden">
+
+
+  <div class="tile">
+    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="Stock">
+    <p>Stock Availability</p>
+    <div class="stock-bar">
+      <div class="stock-label">Rice</div>
+      <div class="progress">
+        <div id="riceStock" class="fill" style="width: 0%"></div>
+      </div>
+      <div class="stock-label">Wheat</div>
+      <div class="progress">
+        <div id="wheatStock" class="fill" style="width: 0%"></div>
+      </div>
+      <div class="stock-label">Sugar</div>
+      <div class="progress">
+        <div id="sugarStock" class="fill" style="width: 0%"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tile">
+    <img src="https://cdn-icons-png.flaticon.com/512/681/681494.png" alt="Crowd">
+    <p>Crowd Density</p>
+    <div id="crowdIndicator">
+      <span class="circle low"></span>
+      <span class="circle medium"></span>
+      <span class="circle high"></span>
+    </div>
+  </div>
+
+
+  <div class="tile">
+    <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Search">
+    <p>Search Nearby Stores</p>
+    <input id="searchBox" placeholder="Enter store name or area">
+    <button onclick="searchNearbyStores()">Search</button>
+  </div>
+
+  <div class="tile">
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712030.png" alt="Voice Assistant">
+    <p>Voice Assistant</p>
+    <button onclick="startVoice()">🎤 Ask</button>
+    <small>Try: "How much rice is available?" or "Crowd status"</small>
+  </div>
+
+  <div class="tile">
+    <img src="https://cdn-icons-png.flaticon.com/512/3143/3143413.png" alt="Time Slot">
+    <p>Reserve Time Slot</p>
+    <select id="timeSlot">
+      <option value="">Select Slot</option>
+      <option value="9-10 AM">9-10 AM</option>
+      <option value="10-11 AM">10-11 AM</option>
+      <option value="11-12 PM">11-12 PM</option>
+      <option value="12-1 PM">12-1 PM</option>
+      <option value="1-2 PM">1-2 PM</option>
+    </select>
+    <button onclick="reserveSlot()">Reserve</button>
+    <div id="slotMsg" style="margin-top:5px;color:green;font-weight:bold"></div>
+  </div>
+
+</div>
+
+<div id="mapSection" class="hidden">
+  <h3 class="section-title">📍 Nearby Fair Price Shops</h3>
+  <div id="map"></div>
+</div>
+
+<script type="module" src="script.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+</body>
+</html>
